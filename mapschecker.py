@@ -4,6 +4,8 @@ import json
 import sys
 import os
 
+
+
 def scan_gmaps(apikey):
 	vulnerable_apis = []
 	url = "https://www.googleapis.com/customsearch/v1?cx=017576662512468239146:omuauf_lfve&q=lectures&key="+apikey
@@ -272,5 +274,9 @@ if len(sys.argv) > 1:
 		print("Invalid arguments, aborting.")
 		print("Either use --api-key as argument such \"python maps_api_scanner.py --api-key KEY\" or directly run script as \"python maps_api_scanner.py\" and supply API key via input.")
 else:
-	apikey = input("Please enter the Google Maps API key you wanted to test: ")
-	scan_gmaps(apikey)
+	#apikey = input("Please enter the Google Maps API key you wanted to test: ")
+	filepath = 'Iliad.txt'
+	with open(filepath) as fp:
+		line = fp.readline()
+		cnt = 1
+		scan_gmaps(line)
